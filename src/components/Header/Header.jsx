@@ -9,7 +9,7 @@ function Header({ handleAddClick, weatherData }) {
   });
   return (
     <header className="header">
-      <img className="header_logo" src={logo} />
+      <img className="header_logo" src={logo} alt="logo image" />
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
