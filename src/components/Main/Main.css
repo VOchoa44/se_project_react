@@ -1,0 +1,21 @@
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 325px);
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.cards {
+  padding: 40px 0 0 0;
+}
+
+.cards__text {
+  margin: 0;
+  padding: 0 0 34px 0;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+}
