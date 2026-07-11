@@ -1,7 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 32px 0 28px;
+  padding: 32px 0 47px;
 }
 
 .header__logo {
@@ -16,7 +16,6 @@
 }
 
 .header__add-clothes-btn {
-  margin: 0 20px 0 auto;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
@@ -36,4 +35,12 @@
   font-size: 20px;
   line-height: 1;
   font-weight: 700;
+}
+.toggle-switch {
+  margin: 0 20px 0 auto;
+}
+
+.header__nav-link {
+  color: black;
+  text-decoration: none;
 }

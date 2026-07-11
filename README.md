@@ -12,3 +12,7 @@ WTWR is an app that uses an API to render current weather information based on t
 - Functional components, hooks
 - CSS3 (flexbox, grid, media queries, psuedo classes,)
 - BEM methodology
+
+**Project Pitch Video**
+
+- Video [link](https://www.loom.com/share/2b9fb58d3fb64c368b919a43c2b4b047)

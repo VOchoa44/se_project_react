@@ -100,4 +100,9 @@
   display: flex;
   justify-content: center;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }

@@ -1,0 +1,57 @@
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__delete-confirm-content {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 151px;
+  background-color: #fff;
+  border-radius: 16px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  max-width: 670px;
+  width: 100%;
+  position: relative;
+}
+
+.modal__delete-confirm-exit {
+  background: transparent url(../../assets/close-btn.svg) no-repeat;
+  top: 22px;
+  right: 23px;
+  height: 20px;
+  width: 20px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+.modal__confirm-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal__confirm-delete-button {
+  color: rgba(255, 77, 0, 1);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 40px 0 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal__confirm-delete-cancel-button {
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 24px 0 0 0;
+  padding: 0;
+  cursor: pointer;
+}
