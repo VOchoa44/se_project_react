@@ -10,8 +10,6 @@
 }
 
 .card__name {
-  position: absolute;
-  top: 15px;
   margin: 0;
   font-size: 16px;
   line-height: 20px;
@@ -25,4 +23,29 @@
 .card__image {
   width: 100%;
   cursor: pointer;
+}
+
+.card__like-button {
+  background: transparent url(../../assets/like-icon.svg) no-repeat;
+  width: 23px;
+  height: 20px;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.card__like-button_liked {
+  background-image: url(../../assets/like-icon-active.svg);
+}
+
+.card__content {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

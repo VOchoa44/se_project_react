@@ -11,17 +11,54 @@ export const getClothingItems = () => {
   }).then(handleServiceResponse);
 };
 
-export const addClothingItems = ({ name, imageUrl, weather }) => {
+export const addClothingItems = ({ name, imageUrl, weather }, token) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(handleServiceResponse);
 };
 
-export const removeClothingItems = (itemID) => {
+export const removeClothingItems = (itemID, token) => {
   return fetch(`${baseUrl}/items/${itemID}`, {
     method: "DELETE",
-    headers,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(handleServiceResponse);
+};
+
+export const updateUser = ({ name, avatar }, token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(handleServiceResponse);
+};
+
+export const addCardLike = (itemID, token) => {
+  return fetch(`${baseUrl}/items/${itemID}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(handleServiceResponse);
+};
+
+export const removeCardLike = (itemID, token) => {
+  return fetch(`${baseUrl}/items/${itemID}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
   }).then(handleServiceResponse);
 };

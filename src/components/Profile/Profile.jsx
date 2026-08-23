@@ -5,14 +5,21 @@ export default function Profile({
   handleAddClick,
   handleCardClick,
   clothingItems,
+  handleEditProfileClick,
+  onCardLike,
+  handleLogoutClick,
 }) {
   return (
     <section className="profile">
-      <Sidebar />
+      <Sidebar
+        handleEditProfileClick={handleEditProfileClick}
+        handleLogoutClick={handleLogoutClick}
+      />
       <ClothesSection
         handleCardClick={handleCardClick}
         clothingItems={clothingItems}
         handleAddClick={handleAddClick}
+        onCardLike={onCardLike}
       />
     </section>
   );
