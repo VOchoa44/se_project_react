@@ -6,8 +6,8 @@ import { useEffect, useContext } from "react";
 const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
   const currentUser = useContext(CurrentUserContext);
   const defaultValues = {
-    name: currentUser.name,
-    avatar: currentUser.avatar,
+    name: "",
+    avatar: "",
   };
   const validationRules = {
     name: (value) => {
@@ -37,8 +37,20 @@ const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
     if (!handleSubmit()) return;
 
     onUpdateUser(values);
-    resetForm(defaultValues, {}, false);
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      resetForm(
+        {
+          name: currentUser.name,
+          avatar: currentUser.avatar,
+        },
+        {},
+        true,
+      );
+    }
+  }, [isOpen, currentUser, resetForm]);
 
   return (
     <ModalWithForm
@@ -58,7 +70,6 @@ const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
             values.name ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.name ? "modal__input_error" : ""}`}
           name="name"
-          id=""
           placeholder="Name"
           value={values.name}
           onChange={handleChange}
@@ -75,7 +86,6 @@ const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
             values.avatar ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.avatar ? "modal__input_error" : ""}`}
           name="avatar"
-          id=""
           placeholder="Avatar URL"
           value={values.avatar}
           onChange={handleChange}

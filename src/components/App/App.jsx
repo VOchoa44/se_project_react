@@ -132,27 +132,31 @@ function App() {
   };
 
   const onRegister = (inputValues) => {
-    registerUser(inputValues).then((data) => {
-      localStorage.setItem("jwt", data.token);
-      checkToken(data.token).then((userData) => {
+    registerUser(inputValues)
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        return checkToken(data.token);
+      })
+      .then((userData) => {
         setIsLoggedIn(true);
         setCurrentUser(userData);
         closeActiveModal();
-      });
-      closeActiveModal();
-    });
+      })
+      .catch(console.error);
   };
 
   const onLogin = (inputValues) => {
-    loginUser(inputValues).then((data) => {
-      localStorage.setItem("jwt", data.token);
-      checkToken(data.token).then((userData) => {
+    loginUser(inputValues)
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        return checkToken(data.token);
+      })
+      .then((userData) => {
         setIsLoggedIn(true);
         setCurrentUser(userData);
         closeActiveModal();
-      });
-      closeActiveModal();
-    });
+      })
+      .catch(console.error);
   };
 
   const onUpdateUser = (values) => {
@@ -218,7 +222,9 @@ function App() {
         })
         .catch((err) => {
           console.error(err);
+          localStorage.removeItem("jwt");
           setIsLoggedIn(false);
+          setCurrentUser({});
         });
     }
   }, []);

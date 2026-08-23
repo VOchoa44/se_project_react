@@ -44,7 +44,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   function handleFormSubmit(evt) {
     evt.preventDefault();
     if (!handleSubmit()) return;
-    onAddItem(values);
     resetForm(defaultValues, {}, false);
   }
 

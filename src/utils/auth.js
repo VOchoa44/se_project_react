@@ -1,3 +1,5 @@
+import { handleServiceResponse } from "./api.js";
+
 function registerUser(inputValues) {
   return fetch("http://localhost:3001/signup", {
     method: "POST",
@@ -6,7 +8,7 @@ function registerUser(inputValues) {
     },
     body: JSON.stringify(inputValues),
   })
-    .then((res) => res.json())
+    .then(handleServiceResponse)
     .then(() => {
       return fetch("http://localhost:3001/signin", {
         method: "POST",
@@ -17,7 +19,7 @@ function registerUser(inputValues) {
         }),
       });
     })
-    .then((res) => res.json());
+    .then(handleServiceResponse);
 }
 
 function loginUser(inputValues) {
@@ -30,7 +32,7 @@ function loginUser(inputValues) {
       email: inputValues.email,
       password: inputValues.password,
     }),
-  }).then((res) => res.json());
+  }).then(handleServiceResponse);
 }
 
 function checkToken(token) {
@@ -40,7 +42,6 @@ function checkToken(token) {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => res.json());
+  }).then(handleServiceResponse);
 }
-
 export { registerUser, loginUser, checkToken };

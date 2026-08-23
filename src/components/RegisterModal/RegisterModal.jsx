@@ -43,9 +43,10 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
 
   function handleFormSubmit(evt) {
     evt.preventDefault();
+
     if (!handleSubmit()) return;
+
     onRegister(values);
-    resetForm(defaultValues, {}, false);
   }
 
   useEffect(() => {
@@ -71,7 +72,6 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
             values.name ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.name ? "modal__input_error" : ""}`}
           name="name"
-          id=""
           placeholder="Name"
           value={values.name}
           onChange={handleChange}
@@ -89,7 +89,6 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
             values.email ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.email ? "modal__input_error" : ""}`}
           name="email"
-          id=""
           placeholder="Email"
           value={values.email}
           onChange={handleChange}
@@ -106,7 +105,6 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
             values.password ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.password ? "modal__input_error" : ""}`}
           name="password"
-          id=""
           placeholder="Password"
           value={values.password}
           onChange={handleChange}
@@ -123,7 +121,6 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
             values.avatar ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.avatar ? "modal__input_error" : ""}`}
           name="avatar"
-          id=""
           placeholder="Avatar URL"
           value={values.avatar}
           onChange={handleChange}

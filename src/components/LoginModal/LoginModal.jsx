@@ -31,9 +31,10 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
 
   function handleFormSubmit(evt) {
     evt.preventDefault();
+
     if (!handleSubmit()) return;
+
     onLogin(values);
-    resetForm(defaultValues, {}, false);
   }
 
   useEffect(() => {
@@ -58,7 +59,6 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
             values.email ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.email ? "modal__input_error" : ""}`}
           name="email"
-          id=""
           placeholder=""
           value={values.email}
           onChange={handleChange}
@@ -75,7 +75,6 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
             values.password ? "modal__input_filled" : ""
           } ${hasSubmitted && errors.password ? "modal__input_error" : ""}`}
           name="password"
-          id=""
           placeholder=""
           value={values.password}
           onChange={handleChange}

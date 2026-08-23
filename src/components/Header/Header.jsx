@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/Logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";

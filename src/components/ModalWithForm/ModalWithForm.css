@@ -116,10 +116,10 @@
   border: none;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.5);
-  border: 10px;
   padding: 0 0 0 10px;
   max-width: 80px;
   width: 100%;
+  cursor: pointer;
 }
 
 .modal__buttons {

@@ -16,3 +16,7 @@ WTWR is an app that uses an API to render current weather information based on t
 **Project Pitch Video**
 
 - Video [link](https://www.loom.com/share/2b9fb58d3fb64c368b919a43c2b4b047)
+
+**Links to Project**
+[Frontend Repository](https://github.com/VOchoa44/se_project_react)
+[Backend repository](https://github.com/VOchoa44/se_project_express)
