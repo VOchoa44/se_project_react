@@ -43,8 +43,10 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 
   function handleFormSubmit(evt) {
     evt.preventDefault();
+
     if (!handleSubmit()) return;
-    resetForm(defaultValues, {}, false);
+
+    onAddItem(values);
   }
 
   useEffect(() => {
