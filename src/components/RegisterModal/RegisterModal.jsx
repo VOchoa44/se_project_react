@@ -75,7 +75,6 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
           placeholder="Name"
           value={values.name}
           onChange={handleChange}
-          isValid={isValid}
         />
         {hasSubmitted && errors.name && (
           <span className="modal__error">{errors.name}</span>

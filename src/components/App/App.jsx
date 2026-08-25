@@ -8,7 +8,7 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { registerUser, loginUser, checkToken } from "../../utils/auth.js";
 import Footer from "../Footer/Footer.jsx";
-import CurrentTemperatureUnitContext from "../../hooks/CurrentTemperatureUnitContext.jsx";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
@@ -133,15 +133,12 @@ function App() {
 
   const onRegister = (inputValues) => {
     registerUser(inputValues)
-      .then((data) => {
-        localStorage.setItem("jwt", data.token);
-        return checkToken(data.token);
-      })
-      .then((userData) => {
-        setIsLoggedIn(true);
-        setCurrentUser(userData);
-        closeActiveModal();
-      })
+      .then((data) =>
+        onLogin({
+          email: data.email,
+          password: data.password,
+        }),
+      )
       .catch(console.error);
   };
 
