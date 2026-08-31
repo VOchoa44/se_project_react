@@ -1,4 +1,7 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.cloud86.csproject.org"
+    : "http://localhost:3001";
 const headers = { "Content-Type": "application/json" };
 
 export const handleServiceResponse = (res) => {

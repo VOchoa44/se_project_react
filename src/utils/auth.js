@@ -1,7 +1,11 @@
 import { handleServiceResponse } from "./api.js";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.cloud86.csproject.org"
+    : "http://localhost:3001";
 
 function registerUser(inputValues) {
-  return fetch("http://localhost:3001/signup", {
+  return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -10,7 +14,7 @@ function registerUser(inputValues) {
   })
     .then(handleServiceResponse)
     .then(() => {
-      return fetch("http://localhost:3001/signin", {
+      return fetch(`${baseUrl}/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -23,7 +27,7 @@ function registerUser(inputValues) {
 }
 
 function loginUser(inputValues) {
-  return fetch("http://localhost:3001/signin", {
+  return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +40,7 @@ function loginUser(inputValues) {
 }
 
 function checkToken(token) {
-  return fetch("http://localhost:3001/users/me", {
+  return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
