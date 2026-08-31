@@ -133,12 +133,15 @@ function App() {
 
   const onRegister = (inputValues) => {
     registerUser(inputValues)
-      .then((data) =>
-        onLogin({
-          email: data.email,
-          password: data.password,
-        }),
-      )
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        return checkToken(data.token);
+      })
+      .then((userData) => {
+        setIsLoggedIn(true);
+        setCurrentUser(userData);
+        closeActiveModal();
+      })
       .catch(console.error);
   };
 
